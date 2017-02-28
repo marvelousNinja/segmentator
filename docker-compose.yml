@@ -1,0 +1,8 @@
+version: '2'
+services:
+  segmentator:
+    build: ./segmentator
+    command: python server.py
+    ports:
+      - '80:80'
+    restart: always
