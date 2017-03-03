@@ -21,7 +21,7 @@ def segment():
     code = subprocess.call([
         'python',
         'TensorBox/evaluate.py',
-        '--weights', './model/save.ckpt-5000',
+        '--weights', './model/save.ckpt-10000',
         '--test_boxes', './model/test_boxes.json',
         '--logdir', './model'
     ], stderr=subprocess.STDOUT)
@@ -29,7 +29,7 @@ def segment():
     if code != 0:
         raise Exception('Failed to evaluate the model', code)
 
-    with open('./model/save.ckpt-5000.test_boxes.json') as output:
+    with open('./model/save.ckpt-10000.test_boxes.json') as output:
         data = json.load(output)
 
     return jsonify(data[0]['rects'])
