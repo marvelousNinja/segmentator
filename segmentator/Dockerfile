@@ -10,7 +10,7 @@ RUN apt-get update -y && \
     make && \
     pip install opencv-python
 
-RUN pip install flask flask-cors
+RUN pip install flask flask-cors dotmap
 
 ADD model model
 ADD server.py server.py
