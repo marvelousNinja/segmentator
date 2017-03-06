@@ -102,7 +102,7 @@ def segment():
             json.dump(test_boxes, codecs.getwriter('utf-8')(f), ensure_ascii=False)
 
         args = DotMap()
-        args.weights = os.getcwd() + '/model/save.ckpt-10000'
+        args.weights = os.getcwd() + '/model/save.ckpt-15000'
         args.expname = ''
         args.test_boxes = test_boxes_path
         args.gpu = 0
