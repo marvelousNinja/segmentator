@@ -71,6 +71,7 @@ import json
 import codecs
 import tempfile
 import shutil
+import traceback
 from dotmap import DotMap
 from flask import Flask
 from flask import request
@@ -119,6 +120,9 @@ def segment():
         pred_annolist, true_annolist = get_results(args, H)
 
         return jsonify(pred_annolist[0].writeJSON()['rects'])
+    except:
+        print >> sys.stderr, '%s %s' % ('Failed to segment an image: ', traceback.format_exc())
+        return jsonify([])
     finally:
         shutil.rmtree(temp_dir_path)
 
